@@ -22,7 +22,7 @@ function longestSubstringWithKDistinctCharacters(str,k){
 	let aux_K = 0;
 	let map = {};
 
-	for(let windowEnd = 0; i < windowEnd; i++){
+	for(let windowEnd = 0; windowEnd < str.length; windowEnd++){
 		if(str[windowEnd] in map){
 			map[str[windowEnd]] +=1;
 		} else{
