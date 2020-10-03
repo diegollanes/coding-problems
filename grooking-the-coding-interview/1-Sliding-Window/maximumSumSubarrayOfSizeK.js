@@ -12,18 +12,18 @@ Input: [2, 3, 4, 1, 5], k=2
 Output: 7
 Explanation: Subarray with maximum sum is [3, 4].*/
 
-function maximumSum(k, array){
-	let maxSum =  Number.MIN_VALUE;
-	let sum = 0;
+function maximumSubarray(array, k){
+	let maximumSum = Number.MIN_VALUE;
+	let currentSum = 0;
 
 	for(let i = 0; i < array.length; i++){
-		sum += array[i];
+		currentSum += array[i];
 		if(i >= k-1){
-			if(sum > maxSum){
-				maxSum = sum;
-			}
-			sum = sum - array[i -(k - 1)];
+			maximumSum = Math.max(maximumSum, currentSum);
+			currentSum = currentSum - array[i-(k-1)];
 		}
 	}
-	return maxSum;
+	return maximumSum;
 }
+
+maximumSubarray([2, 3, 4, 1, 5],2);
