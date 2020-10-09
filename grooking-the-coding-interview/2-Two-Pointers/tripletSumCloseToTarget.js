@@ -24,21 +24,17 @@ function tripletSumCloseToTarget(nums, target){
   let result = null;
 
   for(let i = 0; i < array.length-2 && minDif !== 0; i++){
-    let leftPointer = i + 1;
-    let rightPointer = array.length-1;
+    let left = i + 1;
+    let right = array.length-1;
 
-
-    while(leftPointer < rightPointer){
-      let currentSum = array[i] + array[leftPointer] + array[rightPointer];
-      let currentDif = target - currentSum;
-      if(Math.abs(currentDif) < Math.abs(minDif)){
-        result = currentSum;
-        minDif = currentDif
-      } if(currentSum < target){
-          leftPointer++;
-      } else{
-          rightPointer--;
-      }
+    while(left < right){
+      let sum = array[i] + array[left] + array[right];
+      let dif = target - sum;
+      if(Math.abs(dif) < minDif){
+        minDif = Math.abs(dif);
+        result = sum;
+      } if(sum < target) left++;
+      else right--;
     }
   }
   return result;
