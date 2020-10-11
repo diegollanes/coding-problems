@@ -1,4 +1,4 @@
-//MERGE INTERVALS
+//MERGE INTERVALS or #56 Merge Intervals (Leetcode)
 
 /* Example 1:
 Intervals: [[1,4], [2,5], [7,9]]
@@ -16,7 +16,6 @@ Output: [[1,6]]
 Explanation: Since all the given intervals overlap, we merged them into one. */
 
 function mergeIntervals(intervals){
-
     if(intervals.length <= 1) return intervals;
 	let array = intervals.sort((a,b) => a[0] - b[0]);
 
@@ -24,13 +23,9 @@ function mergeIntervals(intervals){
 	let currentArray = array[0];
 	result.push(currentArray);
 
-	//[[1,10],[2,3],[4,5],[6,7],[8,9]]
-
-	for(let i = 1; i < array.length - 1; i++){
+	for(let i = 1; i < array.length; i++){
 		if(currentArray[1] >= array[i][0]){
-			let max = Math.max(currentArray[1], array[i][1]);
-			currentArray[1] = max; 
-			result[currentArray[1]] = max;
+			currentArray[1] = Math.max(currentArray[1], array[i][1]); 
 		} else{
 			currentArray = array[i];
 			result.push(currentArray);
