@@ -19,13 +19,14 @@ Input: [1, 5, 6, 4, 3, 2]
 Output: [1, 2, 3, 4, 5, 6]*/
 
 function cyclicSort(array){
-	for(let i = 0; i < array.length; i++){
+	let i = 0;
+	while(i < array.length){
 		if(array[i] !== i+1){
 			let temp = array[i];
-      		let index = array[i] - 1;
+			let index = array[i] - 1;
 			array[i] = array[index];
 			array[index] = temp;
-		}
+		} else i++;
 	}
 	return array;
 }
