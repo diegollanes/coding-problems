@@ -30,3 +30,16 @@ function cyclicSort(array){
 	}
 	return array;
 }
+
+function cyclicSort(array){
+	let i = 0;
+	while(i < array.length){
+		let index = array[i] - 1;
+		if(array[i] !== array[index]){
+			let temp = array[i];
+			array[i] = array[index];
+			array[index] = temp;
+		} else i++;
+	}
+	return array;
+}
