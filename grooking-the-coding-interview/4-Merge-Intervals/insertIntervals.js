@@ -61,7 +61,7 @@ function insertIntervals(intervals, newInterval){
 		newArray.push(intervals[i]);
 	}
     
-    if(!false) newArray.push(newInterval)
+    if(!inserted) newArray.push(newInterval)
 
 	let currentInterval = newArray[0];
 	let result = [currentInterval];
