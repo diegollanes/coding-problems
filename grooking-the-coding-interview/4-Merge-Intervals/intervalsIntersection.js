@@ -13,6 +13,16 @@ Output: [5, 7], [9, 10]
 Explanation: The output list contains the common intervals between the two lists. */
 
 function intervalsIntersection(arr1, arr2){
-	
+	let left = 0;
+	let right = 0;
+	let result = [];
 
+	while(left < arr1.length && right < arr2.length){
+		if(arr1[left][1] >= arr2[right][0] && arr1[left][0] <= arr2[right][1]){
+			result.push([Math.max(arr1[left][0], arr2[right][0]), Math.min(arr1[left][1], arr2[right][1])]);
+		}
+		if(arr1[left][1] > arr2[right][1]) right++;
+		else left++;
+	}
+	return result;
 }
